@@ -13,4 +13,4 @@ jobs:
         run: |
           whoami
           pwd
-          ls  
+          id  
