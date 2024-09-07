@@ -1,22 +1,16 @@
-name: Node.js Package and Publish
+name: test pr
 
 on:
-  release:
-    types: [created]
+  pull_request:
 
 jobs:
   publish:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v1
-      - name: install node v18.18.2
-        uses: actions/setup-node@v1
-        with:
-          node-version: 18.18.2
-      - name: yarn install
-        run: yarn install
-      - name: build
-        run: npm run build
-      - uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}    
+      - name: unit-tests
+        continue-on-error: true
+        run: |
+          whoami
+          pwd
+          ls  
